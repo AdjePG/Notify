@@ -1,0 +1,52 @@
+$background: #f3f2f2;
+$backgroundDM: #363636;
+$textColor: #000000;
+$textColorDM: #ffffff;
+$backgroundDM: #363636;
+$hover: #00000028;
+$hoverDM: #ffffff28;
+
+.header {
+    user-select: none;
+    padding: 5px;
+    height: 40px;
+    display: flex;
+    color: $textColor;
+    background: $background;
+    align-items: center;
+    .items {
+        display: flex;
+        align-items: center;
+        .logo {
+            margin: 0 10px 0 0;
+            height: 40px;
+            cursor: pointer;
+        }
+        .item {
+            transition: background-color .15s ease;
+            text-decoration: none;
+            text-align: center;
+            padding: 5px 10px;
+            margin: 0 0 0 10px;
+            line-height: 30px;
+            cursor: pointer;
+            color: $textColor;
+            border-radius: 5px;
+            &:hover {
+                background-color: $hover;
+            }
+        }
+    }
+    &.dark_mode {
+        color: $textColorDM;
+        background-color: $backgroundDM;
+        .items {
+            .item {
+                color: $textColorDM;
+                &:hover {
+                    background-color: $hoverDM;
+                }
+            }
+        }
+    }
+}

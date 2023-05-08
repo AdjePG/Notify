@@ -1,0 +1,17 @@
+$background: #ffffff;
+$backgroundDM: #2b2b2b;
+
+* {
+  outline: none;
+}
+
+.page {
+  overflow: scroll;
+  max-height: calc(100vh - 50px);
+  height: calc(100vh - 50px);
+  box-sizing: border-box;
+  background: $background;
+  &.dark-mode {
+    background-color: $backgroundDM;
+  }
+}

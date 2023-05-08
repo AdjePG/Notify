@@ -1,0 +1,53 @@
+$background: #f3b225;
+$backgroundHeader: #e09c0a;
+$backgroundEdit: #ce6e00;
+$backgroundDelete: #af1400;
+$colorButton: #ffffff;
+
+
+$textColor: #000000;
+$textColorDM: #ffffff;
+$backgroundDM: #363636;
+$hover: #00000028;
+$hoverDM: #ffffff28;
+
+.note {
+	margin: 10px;
+	border-radius: 8px;
+	background: $background;
+	.header {
+		padding: 5px 20px;
+		border-top-right-radius: 8px;
+		border-top-left-radius: 8px;
+		background: $backgroundHeader;
+		.subject {
+			margin: 0;
+			line-height: 38px;
+			font-weight: bold;
+			font-size: 18px;
+			border: none;
+			background: none;
+		}
+		button {
+			width: 36px;
+			margin: 0 0 0 10px;
+			height: 36px;
+			color: $colorButton;
+			border: none;
+			&.edit {
+				padding: 2px;
+				background: $backgroundEdit;
+			}
+			&.delete {
+				padding: 2px;
+				background: $backgroundDelete;
+			}
+		}
+	}
+	.message {
+		padding: 5px 20px;
+	}
+	.footer {
+		padding: 5px 20px;
+	}
+}
