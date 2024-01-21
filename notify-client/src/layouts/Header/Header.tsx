@@ -16,8 +16,9 @@ export default function Header() {
         <Link className={`${styles.item}`} to="/categories">Categorías</Link>
         <Link className={`${styles.item}`} to="/list">Listado</Link>
       </nav>
-      <div className="">
-        <a className={`${styles.item}`} onClick={toggleDarkMode} /*(click)="Categories()"*/>Modo Oscuro</a>
+      <div className={`${styles.others}`}>
+        <span className={`${styles.itemDM}`} onClick={toggleDarkMode}>Modo Oscuro</span>
+        <Link className={`${styles.exit}`} to="/login">Salir Sesión</Link>
       </div>
     </div>
   )

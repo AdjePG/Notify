@@ -1,4 +1,4 @@
-import { createContext, useState, ReactNode } from "react";
+import React, { createContext, useState, ReactNode} from "react";
 
 interface GeneralContextType {
   isDarkMode: boolean;

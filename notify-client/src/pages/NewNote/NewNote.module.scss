@@ -1,0 +1,28 @@
+$background: #ffffff;
+$backgroundDM: #2b2b2b;
+
+.page {
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-height: calc(100vh - 50px);
+  align-items: center;
+  height: calc(100vh - 50px);
+  flex-direction: column;
+  display: flex;
+  background: $background;
+  &::-webkit-scrollbar-thumb {
+    background: #0000003f;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: #0000003f;
+  }
+  &.darkMode {
+    background-color: $backgroundDM;
+    &::-webkit-scrollbar-thumb {
+      background: #ffffff72;
+    }
+    &::-webkit-scrollbar-thumb:hover {
+      background: #ffffff3f;
+    }
+  }
+}

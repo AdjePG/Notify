@@ -1,13 +1,14 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { GeneralContext } from '../../config/generalContext';
-import NoteForm from '../../components/NewNoteForm/NewNoteForm';
+import NewNoteForm from '../../layouts/NewNoteForm/NewNoteForm';
+import styles from './NewNote.module.scss'
 
 export default function NewNote() {
   const { isDarkMode } = useContext(GeneralContext);
-
+  
   return (
-    <div className={`page${isDarkMode ? ' dark-mode' : ''}`}>
-      <NoteForm />
+    <div className={`${styles.page}${isDarkMode ? ` ${styles.darkMode}` : ''}`}>
+      <NewNoteForm/>
     </div>
   )
 }

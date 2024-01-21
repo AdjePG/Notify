@@ -1,9 +1,9 @@
-$background: #f3b225;
+$background: #FFB200;
 $backgroundBtnDelete: #af1400;
 $backgroundBtnEdit: #ce6e00;
 $backgroundBtnUndo: #4d4d4d;
 $backgroundBtnUpdate: #227700;
-$backgroundHeader: #e09c0a;
+$backgroundHeader: #FFA100;
 $backgroundEditMode: #ffffff3b;;
 $colorButton: #ffffff;
 $separatorColor: #0000000e;
@@ -11,10 +11,9 @@ $textColor: #000000;
 
 .note {
 	max-width: 800px;
-	margin: 10px;
 	border-radius: 8px;
 	background: $background;
-	.header {
+	.messageHeader {
 		padding: 5px 20px;
 		display: flex;
 		border-top-right-radius: 8px;
@@ -32,8 +31,9 @@ $textColor: #000000;
 			border-radius: 8px;
 			border: none;
 			background: none;
+			text-overflow: ellipsis;
 			&.editMode {
-				background-color: $backgroundEditMode;
+				background: $backgroundEditMode;
 			}
 		}
 		.notesButtons,
@@ -74,8 +74,7 @@ $textColor: #000000;
 			}
 		}
 	}
-	.body {
-		min-height: 70px;
+	.messageBody {
 		padding: 5px 20px;
 		.message {
 			width: calc(100% - 20px);
@@ -83,26 +82,34 @@ $textColor: #000000;
 			transition: background-color .15s ease;
 			resize: none;
 			padding: 4px 10px;
-			min-height: 60px;
+			height: 60px;
+			max-height: 300px;
 			font-size: 16px;
 			color: $textColor;
 			border-radius: 8px;
 			border: none;
 			background: none;
 			&.editMode {
-				background-color: $backgroundEditMode;
+				background: $backgroundEditMode;
+			}
+			&::-webkit-scrollbar-thumb {
+				background: #0000003f;
+			}
+			&::-webkit-scrollbar-thumb:hover {
+				background: #00000072;
 			}
 		}
 		.separator {
+			margin: 0;
 			border-radius: 1px;
 			border: solid 1px $separatorColor;
 		}
 	}
-	.footer {
+	.messageFooter {
 		padding: 0 20px 6px 20px;
 		height: 40px;
 		display: flex;
-		.categoryBox {
+		.categories {
 			width: 150px;
 			transition: background-color .15s ease, appearance .15s ease;
 			padding: 0 10px;
@@ -113,20 +120,18 @@ $textColor: #000000;
 			background: none;
 			border: none;
 			appearance: none;
+			text-overflow: ellipsis;
 			&.editMode {
-				background-color: $backgroundEditMode;	
+				padding-right: 20px;
+				background: $backgroundEditMode;
 				appearance: auto;
-			}
-			option {
-				height: 40px;
 			}
 		}
 		.date {
 			width: calc(100% - 150px);
 			text-align: right;
 			padding: 0 10px;
-			margin: 0;
-			line-height: 40px;
+			margin: auto 0;
 			font-size: 16px;
 		}
 	}

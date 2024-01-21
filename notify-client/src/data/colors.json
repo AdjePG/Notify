@@ -1,0 +1,50 @@
+[
+  { 
+    "id": 1,
+    "name": "Amarillo", 
+    "primary_code": "#FFA100",
+    "secondary_code": "#FFB200" 
+  },
+  { 
+    "id": 2,
+    "name": "Rojo", 
+    "primary_code": "#CF1A1A",
+    "secondary_code": "#E72121" 
+  },
+  { 
+    "id": 3,
+    "name": "Azul", 
+    "primary_code": "#009FE9",
+    "secondary_code": "#00AEFF" 
+  },
+  { 
+    "id": 4,
+    "name": "Verde", 
+    "primary_code": "#06B900",
+    "secondary_code": "#07C900" 
+  },
+  { 
+    "id": 5,
+    "name": "Púrpura", 
+    "primary_code": "#C037FF",
+    "secondary_code": "#CB5BFF" 
+  },
+  { 
+    "id": 6,
+    "name": "Rosa", 
+    "primary_code": "#FD32D1",
+    "secondary_code": "#FF52DA" 
+  },
+  { 
+    "id": 7,
+    "name": "Claro", 
+    "primary_code": "#DFDFDF",
+    "secondary_code": "#ECECEC" 
+  },
+  { 
+    "id": 8,
+    "name": "Oscuro", 
+    "primary_code": "#474747",
+    "secondary_code": "#535353" 
+  }
+]

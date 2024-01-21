@@ -1,9 +1,8 @@
-import Notes from "../models/notes";
-
 export const getDateFormat = (post_date : Date): String => {
   const hour = post_date.getHours().toString().padStart(2, '0');
   const minute = post_date.getMinutes().toString().padStart(2, '0');
   const second = post_date.getHours().toString().padStart(2, '0');
+  
   const day = post_date.getDate().toString().padStart(2, '0');
   const month = (post_date.getMonth() + 1).toString().padStart(2, '0');
   const year = post_date.getFullYear().toString();

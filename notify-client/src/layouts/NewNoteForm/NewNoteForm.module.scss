@@ -1,0 +1,106 @@
+$background: #f3f2f2;
+$backgroundDM: #363636;
+$backgroundFormField: #ffffff;
+$backgroundFormFieldDM: #2b2b2b;
+$backgroundSubmit: #008cff;
+$backgroundSubmitHover: #006ce7;
+$textColor: #000000;
+$textColorSubmit: #ffffff;
+$textColorDM: #ffffff;
+
+.form {
+	padding: 20px;
+	max-width: 600px;
+	min-width: 440px;
+	width: calc(100vw - 60px);
+	margin: 10px;
+	border-radius: 8px;
+	background: $background;
+	.label {
+		margin: 0 0 10px 0;
+		font-size: 20px;
+		flex-direction: column;
+		display: flex;
+		color: $textColor;
+		.subject {
+			padding: 0 10px;
+			margin: 10px 0 0 0;
+			height: 40px;
+			font-size: 16px;
+			color: $textColor;
+			border-radius: 8px;
+			border: none;
+			background: $backgroundFormField;
+			text-overflow: ellipsis;
+		}
+		.message {
+			overflow: hidden;
+			resize: none;
+			padding: 4px 10px;
+			margin: 10px 0 0 0;
+			height: 50px;
+			max-height: 300px;
+			font-size: 16px;
+			color: $textColor;
+			border-radius: 8px;
+			border: none;
+			background: $backgroundFormField;
+			&::-webkit-scrollbar-thumb {
+				background: #0000003f;
+			}
+			&::-webkit-scrollbar-thumb {
+				background: #0000003f;
+			}
+		}
+		.categories {
+			padding: 0 10px;
+			margin: 10px 0 0 0;
+			height: 40px;
+			font-size: 16px;
+			color: $textColor;
+			border-radius: 8px;
+			border: none;
+			background: $backgroundFormField;
+		}
+	}
+	.submit {
+		width: 200px;
+		transition: background-color .15s ease;
+		margin: 0 auto;
+		height: 40px;
+		font-size: 16px;
+		display: block;
+		color: $textColorSubmit;
+		border-radius: 8px;
+		border: none;
+		background: $backgroundSubmit;
+		&:hover {
+			background: $backgroundSubmitHover;
+		}
+	}
+	&.darkMode {
+		background: $backgroundDM;
+		.label {
+			color: $textColorDM;
+			.subject {
+				color: $textColorDM;
+				background: $backgroundFormFieldDM;
+			}
+			.message {
+				color: $textColorDM;
+				background: $backgroundFormFieldDM;
+				&::-webkit-scrollbar-thumb {
+					background: #ffffff72;
+				}
+				&::-webkit-scrollbar-thumb:hover {
+					background: #ffffff3f;
+				}
+			}
+			.categories {
+				color: $textColorDM;
+				background: $backgroundFormFieldDM;
+			}
+		}
+	}
+}
+

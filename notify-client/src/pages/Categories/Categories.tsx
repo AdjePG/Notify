@@ -1,13 +1,14 @@
 import React, { useContext } from 'react'
 import { GeneralContext } from '../../config/generalContext';
-import * as NotesService from '../../services/notesService';
+import NewCategoryForm from '../../layouts/NewCategoryForm/NewCategoryForm';
+import styles from './Categories.module.scss'
 
 export default function Categories() {
-  const { isDarkMode, toggleDarkMode } = useContext(GeneralContext);
+  const { isDarkMode } = useContext(GeneralContext);
 
   return (
-    <div className={`page${isDarkMode ? ' dark-mode' : ''}`}>
-      Categories
+    <div className={`${styles.page}${isDarkMode ? ` ${styles.darkMode}` : ''}`}>
+      <NewCategoryForm />
     </div>
   )
 }
