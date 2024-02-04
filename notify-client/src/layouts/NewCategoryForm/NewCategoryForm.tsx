@@ -42,7 +42,8 @@ export default function NoteForm() {
 			setCategory(new Category(category.id, category.name, category.info, category.color_id));
 			const res = await CategoriesService.postCategory(category);
 			const data = await res.json();
-			console.log(data);
+			
+			alert('Categoria creada correctamente');
 		} catch (err) {
 			console.log(err);
 		}

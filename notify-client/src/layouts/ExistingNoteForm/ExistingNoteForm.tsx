@@ -3,6 +3,8 @@ import * as dateUtil from '../../utils/dateUtil';
 import * as NotesService from '../../services/notesService';
 import Note from '../../models/note';
 import Category from '../../models/category';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPen, faTrash, faCheck, faRotateLeft } from '@fortawesome/free-solid-svg-icons';
 import styles from './ExistingNoteForm.module.scss'
 
 interface Props {
@@ -81,12 +83,12 @@ export default function NoteRead(props : Props) {
 			<div className={`${styles.messageHeader}`} ref={messageHeaderDiv}>
 				<input className={`${styles.subject}${editMode ? ` ${styles.editMode}` : ''}`} type="text" name="subject" value={note.subject} onChange={handleInputChange} disabled={!editMode} maxLength={40}></input>
 				<div className={`${styles.notesButtons}${editMode ? ` ${styles.editMode}` : ''}`}>
-					<button className={`${styles.edit}`} onClick={handleEdit}>E</button>
-					<button className={`${styles.delete}`} onClick={handleDelete}>D</button>
+					<button className={`${styles.edit}`} onClick={handleEdit}><FontAwesomeIcon icon={faPen} /></button>
+					<button className={`${styles.delete}`} onClick={handleDelete}><FontAwesomeIcon icon={faTrash} /></button>
 				</div>
 				<div className={`${styles.notesButtonsEdit}${editMode ? ` ${styles.editMode}` : ''}`}>
-					<button className={`${styles.update}`} onClick={handleUpdate}>Up</button>
-					<button className={`${styles.undo}`} onClick={handleUndo}>Un</button>
+					<button className={`${styles.update}`} onClick={handleUpdate}><FontAwesomeIcon icon={faCheck} /></button>
+					<button className={`${styles.undo}`} onClick={handleUndo}><FontAwesomeIcon icon={faRotateLeft} /></button>
 				</div>
 			</div>
 			<div className={`${styles.messageBody}`}>

@@ -47,7 +47,8 @@ export default function NoteForm() {
 			setNote(new Note(note.id, note.subject, note.message, new Date(Date.now())));
 			const res = await NotesService.postNote(note);
 			const data = await res.json();
-			console.log(data);
+			
+			alert('Nota creada correctamente');
 		} catch (err) {
 			console.log(err);
 		}
@@ -83,6 +84,6 @@ export default function NoteForm() {
 				</label>
 				<button className={`${styles.submit}`} type="submit">Crear nota</button>
 			</form>
-    	</div>
+    </div>
 	)
 }

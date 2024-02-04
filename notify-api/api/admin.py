@@ -1,9 +1,8 @@
 from django.contrib import admin
 
-from api.models import Users, Categories, Notes
+from api.models import Category, Note
 
 # Register your models here.
 
-admin.site.register(Users)
-admin.site.register(Categories)
-admin.site.register(Notes)
+admin.site.register(Category)
+admin.site.register(Note)

@@ -27,13 +27,13 @@ export const putCategory = async (category: Category) => {
   return await fetch(`${API_MAIN_URL}${API_CATEGORY}${category.id}`,
 		{
 			method: "PUT",
-		headers: {
-			"Content-Type": "application/json"
-		},
-		body: JSON.stringify({
-				"name": category.name.trim(),
-				"info": category.info.trim(),
-				"color_id": category.color_id,
+			headers: {
+				"Content-Type": "application/json"
+			},
+			body: JSON.stringify({
+					"name": category.name.trim(),
+					"info": category.info.trim(),
+					"color_id": category.color_id,
 			})
 		});
 }

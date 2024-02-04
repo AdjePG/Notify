@@ -2,6 +2,7 @@ $background: #f3f2f2;
 $backgroundDM: #363636;
 $backgroundItemHover: #00000028;
 $backgroundItemHoverDM: #ffffff28;
+$backgroundExitHover: #ff00003e;
 $textColor: #000000;
 $textColorDM: #ffffff;
 
@@ -35,6 +36,9 @@ $textColorDM: #ffffff;
 			&:hover {
 				background: $backgroundItemHover;
 			}
+			.text {
+				margin: 0 0 0 10px
+			}
 		}
 	}
 	.others {
@@ -50,6 +54,16 @@ $textColorDM: #ffffff;
 			cursor: pointer;
 			color: $textColor;
 			border-radius: 5px;
+			.text {
+				margin: 0 0 0 10px
+			}
+		}
+		.exit {
+			&:hover {
+				background: $backgroundExitHover;
+			}
+		}
+		.itemDM {
 			&:hover {
 				background: $backgroundItemHover;
 			}
@@ -69,10 +83,35 @@ $textColorDM: #ffffff;
 		.others {
 			.exit, .itemDM {
 				color: $textColorDM;
+			}
+			.exit {
+				&:hover {
+					background: $backgroundExitHover;
+				}
+			}
+			.itemDM {
 				&:hover {
 					background: $backgroundItemHoverDM;
 				}
 			}
 		}
 	}
+	@media (max-width: 860px) {
+    .items {
+			.item {
+				width: 20px;
+				.text {
+					display: none;
+				}
+			}
+		}
+		.others {
+			.exit, .itemDM {
+				width: 20px;
+				.text {
+					display: none;
+				}
+			}
+		}
+  }
 }

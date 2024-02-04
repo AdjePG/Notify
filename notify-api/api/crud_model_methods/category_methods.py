@@ -2,27 +2,27 @@ import json
 
 from django.http import JsonResponse
 
-from api.models import Categories
+from api.models import Category
 
 # GET methods
-def getCategories ():
-    categories = list(Categories.objects.values())
-    #if len(categories) > 0:
+def getCategories():
+    # It'll return a list of all categories
+    categories = list(Category.objects.values())
+
     data = {
         'retcode': 0,
         'message': "Success",
         'categories': categories
     }
-    #else:
-    #    data = {
-    #        'retcode': 1,
-    #        'message': "Categories not found..."
-    #    }
+
     return JsonResponse(data)
 
 
-def getCategory (id: int):
-    categories = list(Categories.objects.filter(id=id).values())
+def getCategory(id: int):
+    # It'll return a list of categories which their id
+    # is the same as requested
+    categories = list(Category.objects.filter(id=id).values())
+
     if len(categories) > 0:
         data = {
             'retcode': 0,
@@ -32,7 +32,7 @@ def getCategory (id: int):
     else:
         data = {
             'retcode': 1,
-            'message': "Category not found..."
+            'message': "Category not found"
         }
 
     return JsonResponse(data)
@@ -40,9 +40,10 @@ def getCategory (id: int):
 
 # POST methods
 def postCategory (request):
+    # Gets the body of the request to create a category with its values
     jd = json.loads(request.body)
 
-    Categories.objects.create(
+    Category.objects.create(
         name=jd['name'],
         info=jd['info'],
         color_id=jd['color_id']
@@ -59,10 +60,12 @@ def postCategory (request):
 # PUT methods
 def putCategory (request, id: int):
     jd = json.loads(request.body)
-    categories = list(Categories.objects.filter(id=id).values())
+    categories = list(Category.objects.filter(id=id).values())
 
+    # Checking if the selected note exists or not
     if len(categories) > 0:
-        categories = Categories.objects.get(id=id)
+        # If exists, we update the selected category
+        categories = Category.objects.get(id=id)
         categories.name = jd['name']
         categories.info = jd['info']
         categories.color_id = jd['color_id']
@@ -73,9 +76,10 @@ def putCategory (request, id: int):
             'message': "Success",
         }
     else:
+        # If not exists, we return an error response
         data = {
             'retcode': 1,
-            'message': "Category not found..."
+            'message': "Category not found"
         }
 
     return JsonResponse(data)
@@ -83,19 +87,22 @@ def putCategory (request, id: int):
 
 # DELETE methods
 def deleteCategory (id: int):
-    categories = list(Categories.objects.filter(id=id).values())
+    categories = list(Category.objects.filter(id=id).values())
 
+    # Checking if the selected category exists or not
     if len(categories) > 0:
-        Categories.objects.filter(id=id).delete()
+        # If exists, we update the selected category
+        Category.objects.filter(id=id).delete()
 
         data = {
             'retcode': 0,
             'message': "Success",
         }
     else:
+        # If not exists, we return an error response
         data = {
             'retcode': 1,
-            'message': "Category not found..."
+            'message': "Category not found"
         }
 
     return JsonResponse(data)

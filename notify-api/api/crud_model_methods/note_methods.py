@@ -2,66 +2,54 @@ import json
 
 from django.http import JsonResponse
 
-from api.models import Notes, Categories
+from api.models import Note, Category
+
+from rest_framework.decorators import permission_classes
+from rest_framework.permissions import IsAuthenticated
 
 
 # GET methods
-def getNotes ():
-    notes = list(Notes.objects.values())
+@permission_classes([IsAuthenticated])
+def getNotes (request):
+    # It'll return a list of all notes
+    notes = list(Note.objects.filter(user=request.user.id).values())
 
-    # Checks if notes list contains any note.
-    # If there's at least one note, it'll return the list successfully.
-
-    ##if len(notes) > 0:
     data = {
         'retcode': 0,
         'message': "Success",
         'notes': notes
     }
-    ##else:
-    ##    data = {
-    ##        'retcode': 1,
-    ##        'message': "Notes not found..."
-    ##    }
-
     return JsonResponse(data)
 
 
 def getNotesByCategory (id: int):
-    notes = list(Notes.objects.filter(category_id=id).values())
+    # It'll return a list of notes which their category_id
+    # is the same as requested
+    notes = list(Note.objects.filter(category_id=id).values())
 
-    # Checks if notes list contains any note with a specific category id.
-    # If there's at least one note, it'll return the list successfully.
-
-    if len(notes) > 0:
-        data = {
-            'retcode': 0,
-            'message': "Success",
-            'note': notes
-        }
-    else:
-        data = {
-            'retcode': 1,
-            'message': "Note not found..."
-        }
+    data = {
+        'retcode': 0,
+        'message': "Success",
+        'notes': notes
+    }
 
     return JsonResponse(data)
 
 
 # POST methods
 def postNote (request):
+    # Gets the body of the request to create a note with its values
     jd = json.loads(request.body)
 
-    # Checking if the selected category exists or not.
-    # If not, we add a None value
-
-    if Categories.objects.filter(id=jd['category_id']).exists():
+    # Checking if the selected category exists or not
+    # If not, we add a None value to category_id
+    if Category.objects.filter(id=jd['category_id']).exists():
         category_id = jd['category_id']
     else:
         category_id = None
 
-    # Set each python model property with every sent request body property value.
-    Notes.objects.create(
+    Note.objects.create(
+        user=request.user.id,
         subject=jd['subject'],
         message=jd['message'],
         post_date=jd['post_date'],
@@ -79,18 +67,20 @@ def postNote (request):
 # PUT methods
 def putNote (request, id: int):
     jd = json.loads(request.body)
-    notes = list(Notes.objects.filter(id=id).values())
+    notes = list(Note.objects.filter(id=id).values())
 
-    # Checks if notes list contains any note with a specific id.
-    # If there's at least one note, it'll proceed to update the current note.
+    if Category.objects.filter(id=jd['category_id']).exists():
+        category_id = jd['category_id']
+    else:
+        category_id = None
 
+    # Checking if the selected note exists or not
     if len(notes) > 0:
-        # Set each python model property with every sent request body property value.
-
-        note = Notes.objects.get(id=id)
+        # If exists, we update the selected note
+        note = Note.objects.get(id=id)
         note.subject = jd['subject']
         note.message = jd['message']
-        note.category_id = jd['category_id']
+        note.category_id = category_id
         note.save()
 
         data = {
@@ -98,9 +88,10 @@ def putNote (request, id: int):
             'message': "Success",
         }
     else:
+        # If not exists, we return an error response
         data = {
             'retcode': 1,
-            'message': "Note not found..."
+            'message': "Note not found"
         }
 
     return JsonResponse(data)
@@ -108,22 +99,22 @@ def putNote (request, id: int):
 
 # DELETE methods
 def deleteNote (id: int):
-    notes = list(Notes.objects.filter(id=id).values())
+    notes = list(Note.objects.filter(id=id).values())
 
-    # Checks if notes list contains any note with sent category id.
-    # If there's at least one note, it'll proceed to delete the current note.
-
+    # Checking if the selected note exists or not
     if len(notes) > 0:
-        Notes.objects.filter(id=id).delete()
+        # If exists, we update the selected note
+        Note.objects.filter(id=id).delete()
 
         data = {
             'retcode': 0,
             'message': "Success",
         }
     else:
+        # If not exists, we return an error response
         data = {
             'retcode': 1,
-            'message': "Note not found..."
+            'message': "Note not found"
         }
 
     return JsonResponse(data)
