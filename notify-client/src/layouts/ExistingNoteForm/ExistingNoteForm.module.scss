@@ -1,0 +1,138 @@
+$background: #FFB200;
+$backgroundBtnDelete: #af1400;
+$backgroundBtnEdit: #ce6e00;
+$backgroundBtnUndo: #4d4d4d;
+$backgroundBtnUpdate: #227700;
+$backgroundHeader: #FFA100;
+$backgroundEditMode: #ffffff3b;;
+$colorButton: #ffffff;
+$separatorColor: #0000000e;
+$textColor: #000000;
+
+.note {
+	max-width: 800px;
+	border-radius: 8px;
+	background: $background;
+	.messageHeader {
+		padding: 5px 20px;
+		display: flex;
+		border-top-right-radius: 8px;
+		border-top-left-radius: 8px;
+		background: $backgroundHeader;
+		.subject {
+			width: calc(100% - 100px);
+			transition: background-color .15s ease;
+			padding: 0 10px;
+			margin: 0;
+			line-height: 37px;
+			font-weight: bold;
+			font-size: 20px;
+			color: $textColor;
+			border-radius: 8px;
+			border: none;
+			background: none;
+			text-overflow: ellipsis;
+			&.editMode {
+				background: $backgroundEditMode;
+			}
+		}
+		.notesButtons,
+		.notesButtonsEdit {
+			button {
+				width: 40px;
+				padding: 1px;
+				margin: 0 0 0 10px;
+				height: 40px;
+				cursor: pointer;
+				color: $colorButton;
+				border-radius: 8px;
+				border: none;
+				&.edit {
+					background: $backgroundBtnEdit;
+				}
+				&.delete {
+					background: $backgroundBtnDelete;
+				}
+				&.update {
+					background: $backgroundBtnUpdate;
+				}
+				&.undo {
+					background: $backgroundBtnUndo;
+				}
+			}
+		}
+		.notesButtons {
+			display: flex;
+			&.editMode{
+				display: none;
+			}
+		}
+		.notesButtonsEdit {
+			display: none;
+			&.editMode{
+				display: flex;
+			}
+		}
+	}
+	.messageBody {
+		padding: 5px 20px;
+		.message {
+			width: calc(100% - 20px);
+			overflow: hidden;
+			transition: background-color .15s ease;
+			resize: none;
+			padding: 4px 10px;
+			height: 60px;
+			max-height: 300px;
+			font-size: 16px;
+			color: $textColor;
+			border-radius: 8px;
+			border: none;
+			background: none;
+			&.editMode {
+				background: $backgroundEditMode;
+			}
+			&::-webkit-scrollbar-thumb {
+				background: #0000003f;
+			}
+			&::-webkit-scrollbar-thumb:hover {
+				background: #00000072;
+			}
+		}
+		.separator {
+			margin: 0;
+			border-radius: 1px;
+			border: solid 1px $separatorColor;
+		}
+	}
+	.messageFooter {
+		padding: 0 20px 6px 20px;
+		height: 40px;
+		display: flex;
+		.categories {
+			width: 150px;
+			transition: background-color .15s ease, appearance .15s ease;
+			padding: 0 10px;
+			height: 40px;
+			font-size: 16px;
+			color: $textColor;
+			border-radius: 8px;
+			background: none;
+			border: none;
+			appearance: none;
+			text-overflow: ellipsis;
+			&.editMode {
+				padding-right: 20px;
+				background: $backgroundEditMode;
+				appearance: auto;
+			}
+		}
+		.date {
+			width: calc(100% - 150px);
+			text-align: right;
+			padding: 0 10px;
+			margin: auto 0;
+			font-size: 16px;
+		}
+	}
+}

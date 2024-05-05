@@ -1,0 +1,80 @@
+$background: #ffffff;
+$backgroundForm: #f3f2f2;
+$backgroundFormField: #ffffff;
+$separatorColor: #0000000e;
+$backgroundSubmit: #008cff;
+$backgroundSubmitHover: #006ce7;
+$textColor: #000000;
+$textColorSubmit: #ffffff;
+
+.page {
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-height: 100vh;
+  justify-content: center;
+  height: 100vh;
+  flex-direction: column;
+  display: flex;
+  background: $background;
+  align-items: center;
+  .form {
+    padding: 20px;
+    max-width: 400px;
+    width: 100%;
+    margin: 10px;
+    border-radius: 8px;
+    background: $backgroundForm;
+    .title {
+      width: 100%;
+      text-align: center;
+      margin: 0 0 20px;
+      font-size: 30px;
+      font-weight: bold;
+      display: block;
+    }
+    .label {
+      margin: 0 0 10px 0;
+      font-size: 20px;
+      flex-direction: column;
+      display: flex;
+      color: $textColor;
+      .input {
+        padding: 0 10px;
+        margin: 10px 0 0 0;
+        height: 40px;
+        font-size: 16px;
+        color: $textColor;
+        border-radius: 8px;
+        border: none;
+        background: $backgroundFormField;
+        text-overflow: ellipsis;
+      }
+    }
+    .btn {
+      width: 100%;
+      transition: background-color .15s ease;
+      margin: 0 auto;
+      height: 40px;
+      font-size: 16px;
+      display: block;
+      color: $textColorSubmit;
+      border-radius: 8px;
+      border: none;
+      background: $backgroundSubmit;
+      &:hover {
+        background: $backgroundSubmitHover;
+      }
+    }
+		.separator {
+			margin: 5px 0;
+			border-radius: 1px;
+			border: solid 1px $separatorColor;
+		}
+  }
+  &::-webkit-scrollbar-thumb {
+    background: #0000003f;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: #0000003f;
+  }
+}

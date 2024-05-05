@@ -1,0 +1,57 @@
+$background: #f3f2f2;
+$backgroundDM: #363636;
+$backgroundItemHover: #00000028;
+$backgroundItemHoverDM: #ffffff28;
+$textColor: #000000;
+$textColorDM: #ffffff;
+
+.categories {
+    width: 250px;
+    top: 0;
+    position: sticky;
+    padding: 10px;
+    overflow: auto;
+    min-width: 150px;
+    max-width: 250px;
+    margin: 0;
+    list-style: none;
+    display: block;
+    color: $textColor;
+    border-radius: 8px;
+    background: $background;
+    .categoryItem {
+        transition: background-color .15s ease;
+        padding: 10px;
+        border-radius: 5px;
+        text-overflow: ellipsis;
+        &:hover {
+            background: $backgroundItemHover;
+        }
+        &.darkMode {
+            &:hover {
+                background: $backgroundItemHoverDM;
+            }
+        }
+    }
+    &::-webkit-scrollbar-thumb {
+        background: #0000003f;
+    }
+    &::-webkit-scrollbar-thumb {
+        background: #0000003f;
+    }
+    &.darkMode {
+		color: $textColorDM;
+        background: $backgroundDM;
+        .categoryItem {
+            &:hover {
+                background: $backgroundItemHoverDM;
+            }
+        }
+        &::-webkit-scrollbar-thumb {
+            background: #ffffff72;
+        }
+        &::-webkit-scrollbar-thumb:hover {
+            background: #ffffff3f;
+        }
+    }
+}

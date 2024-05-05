@@ -1,0 +1,52 @@
+$background: #ffffff;
+$backgroundDM: #2b2b2b;
+$backgroundBox: #f3f2f2;
+$backgroundBoxDM: #363636;
+$textColorDM: #ffffff;
+
+.page {
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-height: calc(100vh - 50px);
+  height: calc(100vh - 50px);
+  padding: 10px;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  background: $background;
+  .introductionBox {
+    padding: 0 20px;
+    justify-content: center;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 8px;
+    background: $backgroundBox;
+    align-items: center;
+  }
+  .title {
+    line-height: 0;
+  }
+  .text {
+    line-height: 0;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: #0000003f;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: #0000003f;
+  }
+  &.darkMode {
+    background-color: $backgroundDM;
+    color: $textColorDM;
+    .introductionBox {
+      background: $backgroundBoxDM;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: #ffffff72;
+    }
+    &::-webkit-scrollbar-thumb:hover {
+      background: #ffffff3f;
+    }
+  }
+}

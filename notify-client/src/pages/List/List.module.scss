@@ -1,0 +1,35 @@
+$background: #ffffff;
+$backgroundDM: #2b2b2b;
+
+.page {
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-height: calc(100vh - 50px);
+  height: calc(100vh - 70px);
+  padding: 10px;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  background: $background;
+  .notes {
+    width: 800px;
+    gap: 10px;
+    flex-direction: column;
+    display: flex;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: #0000003f;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: #0000003f;
+  }
+  &.darkMode {
+    background-color: $backgroundDM;
+    &::-webkit-scrollbar-thumb {
+      background: #ffffff72;
+    }
+    &::-webkit-scrollbar-thumb:hover {
+      background: #ffffff3f;
+    }
+  }
+}
